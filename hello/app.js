@@ -1,15 +1,10 @@
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
-  , path = require('path'),
-  mongodb = require("./utils/mongo.js");
+  , path = require('path');
 
 var app = express();
 setupExpress();
 var logger = require('./utils/logging.js');
-
-console.log(mongodb.connect());
 
 // development only
 if ('development' == app.get('env')) {
@@ -22,10 +17,17 @@ app.use(function(request, response, next) {
   next();
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/getuser/:id', user.get);
-app.post('/saveuser', user.save);
+require('./routes/allRoutes')(app);
+/*
+ * alternatively we can define routes directly here, as follows: (but it has 2 issues. 
+ * 1. u shuld not defining controller code in the routers, doe nt look good!
+ * 2. u r polluting the app.js with routing declarations, it does not look good. 
+ * 
+ * var routes =  require('./routes/userRoutes');
+ * app.get('/', userroutes.index);
+	app.get('/users', userroutes.list);
+	app.get('/getuser/:id', userroutes.get);*/
+
 
 http.createServer(app).listen(8080, function(){
   console.log('Express server listening on port ' + app.get('port'));

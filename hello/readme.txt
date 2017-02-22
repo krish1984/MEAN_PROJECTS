@@ -12,6 +12,11 @@ http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-node
 http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/
 https://codeforgeek.com/2015/08/restful-api-node-mongodb/
 https://www.ibm.com/developerworks/library/wa-nodejs-polling-app/
+http://bigspaceship.github.io/blog/2014/05/14/how-to-create-a-rest-api-with-node-dot-js/
+http://stackoverflow.com/questions/9232562/mongoose-vs-mongodb-nodejs-modules-extensions-which-better-and-why
+http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/
+https://erichonorez.wordpress.com/2013/02/10/how-create-a-rest-api-with-node-js-and-express/
+
 
 
 Enide-2015-7-windows-x64-20150706

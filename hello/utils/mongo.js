@@ -1,25 +1,14 @@
 var mongoose = require('mongoose');
-/*mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-	console.log("connected.............");
+var logger = require('./logging.js');
+//Mongo.dev.mse-esp.com
+//mongodb://localhost/test
+//mongoose.connect('mongodb://username:password@host:port/database?options...');
+mongoose.connect("mongodb://localhost/test",function(error){
+	if(error){
+		logger.error("error : unable to connect to mongo");
+	}else{
+		logger.debug("connected to mongo..");
+	}
+	
 });
-
-module.exports=mongoose;*/
-
-module.exports = {
-		connect:function(){
-			var status=false;
-			mongoose.connect("mongodb://localhost/test",function(error){
-				if(error){
-					console.log("error"+error);
-					throw "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-				}else{
-					console.log("open done");
-					status=true;
-				}
-			});
-		}
-};
+module.exports = mongoose;
